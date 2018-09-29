@@ -7,7 +7,13 @@ import org.testng.annotations.Test;
 
 public class InputSearch extends CommonAPI {
     @Test
-            public void search(){
-            driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Laptop", Keys.ENTER);
-}
+    public void search(){
+        typeOnInputBox("#twotabsearchtextbox", "Laptop");
+    }
+
+/*  Optional way to perform same test without calling method from Common API
+    public void search(){
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Laptop", Keys.ENTER);
+    }
+*/
 }
