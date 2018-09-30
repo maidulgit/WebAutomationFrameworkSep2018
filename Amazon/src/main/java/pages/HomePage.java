@@ -8,8 +8,10 @@ import org.openqa.selenium.support.How;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.String;
 
-public class SearchPage {
+
+public class HomePage {
     @FindBy(how = How.CSS, using ="#twotabsearchtextbox")
     public static WebElement searchInputWebElement;
 
@@ -33,14 +35,7 @@ public class SearchPage {
     public void clearInput(){
         getSearchInputWebElement().clear();
     }
-    public List<String> getMenuData(){
-        List<String> data = new ArrayList<>();
-        data.add("Laptop");
-        data.add("honey");
-        data.add("power bank");
 
-        return data;
-    }
     public void searchItemsAndSubmitButton()throws IOException {
         List<String> list = getItemValue();
         for(int i=0; i<list.size(); i++) {
@@ -60,6 +55,7 @@ public class SearchPage {
     }
 
     public void searchItems()throws InterruptedException{
+
         List<String> itemList = getItemValue();
         for(String st: itemList) {
             getSearchInputField().sendKeys(st, Keys.ENTER);
