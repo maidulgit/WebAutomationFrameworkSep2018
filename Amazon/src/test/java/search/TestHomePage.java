@@ -3,15 +3,15 @@ package search;
 import base.CommonAPI;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
-import pages.SearchPage;
+import pages.HomePage;
 
 import java.io.IOException;
 
-public class TestSearch extends CommonAPI {
+public class TestHomePage extends CommonAPI {
 
     @Test
     public void searchData()throws IOException{
-        SearchPage searchPage = PageFactory.initElements(driver,SearchPage.class);
-        searchPage.searchItemsAndSubmitButton();
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        homePage.searchItemsAndSubmitButton();
     }
 }
