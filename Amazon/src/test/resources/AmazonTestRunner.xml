@@ -5,17 +5,18 @@
 
     <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnvName" value="browserstack"/>
-    <parameter name="os" value="OS X"/>
-    <parameter name="os_version" value="Sierra"/>
-    <parameter name="browserName" value="chrome"/>
+    <parameter name="os" value="windows"/>
+    <parameter name="os_version" value="10"/>
+    <parameter name="browserName" value="firefox"/>
     <parameter name="browserVersion" value="60.0"/>
     <parameter name="url" value="https://www.amazon.com"/>
 
     <test name = "Search Test">
         <classes>
-            <class name="search.InputSearch"/>
-            <class name="menu.MenuPage"/>
-            <class name="search.TestSearch"/>
+            <!--<class name="search.InputSearch"/>
+            <class name="menu.MenuPage"/>-->
+           <!-- <class name="search.TestHomePage"/>-->
+            <class name="search.SearchByXlsFromHomepageTest"/>
         </classes>
     </test>
 
