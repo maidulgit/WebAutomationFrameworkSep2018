@@ -11,7 +11,7 @@ public class SearchByXlsFromHomepageTest extends CommonAPI {
     @Test
     public void searchXlsData() throws IOException, InterruptedException {
         SearchByXlsFromHomepage searchByXlsFromHomepage = PageFactory.initElements(driver, SearchByXlsFromHomepage.class);
-        searchByXlsFromHomepage.getXlsValue("itemlist.xls");
+        searchByXlsFromHomepage.useXlsData("itemlist.xls");
     }
 }
 

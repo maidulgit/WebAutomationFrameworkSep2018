@@ -17,22 +17,22 @@ public class SearchByXlsFromHomepage extends CommonAPI {
 
     DataReader dtr = new DataReader();
 
-    public String[] getDataCol1(String fileName) throws IOException {
-        String path = "Amazon/data/"+fileName;
+    public String[] getXlsData(String filename) throws IOException {
+        String path = "C:\\Users\\himel\\IdeaProjects\\WebAutomationDemo\\Amazon\\data\\"+filename;
         String[] output = dtr.colReader(path, 1);
         return output;
     }
 
- public String[] getXlsValue(String fileName) throws IOException, InterruptedException {
-        String[] searchItem = getDataCol1(fileName);
-     for (int i = 0; i < searchItem.length; i++) {
+ public String[] useXlsData(String filename) throws IOException, InterruptedException {
+        String[] searchItem = getXlsData(filename);
+        for (int i = 0; i < searchItem.length; i++) {
             sleepFor(1);
             searchInputWebElement.sendKeys(searchItem[i]);
-            sleepFor(2);
+            sleepFor(1);
             submitButtonWebElement.click();
             searchInputWebElement.clear();
-            sleepFor(1);
-     }
-     return searchItem;
+            sleepFor(2);
+         }
+        return getXlsData(filename);
  }
 }
