@@ -1,5 +1,5 @@
 package base;
-/*
+
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.commons.io.FileUtils;
@@ -18,7 +18,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import reporting.ApplicationLog;
 import reporting.ExtentManager;
 import reporting.ExtentTestManager;
 
@@ -28,36 +27,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-*/
-
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.LogStatus;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestContext;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
-import reporting.ExtentManager;
-import reporting.ExtentTestManager;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.lang.reflect.Method;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -121,13 +90,17 @@ public class CommonAPI {
         return calendar.getTime();
     }
 
-    /*public WebDriver driver = null;
+    public WebDriver driver = null;
+    public String browserstack_username= "maidulhossain1";
+    public String browserstack_accesskey = "yRqpXEc2bW6TrRVTSCsQ";
+    public String saucelabs_username = "maidul";
+    public String saucelabs_accesskey = "e31f7186-0fec-46e1-adbf-8fc66d4d9354";
     @Parameters({"useCloudEnv","cloudEnvName","os","os_version","browserName","browserVersion","url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false")String cloudEnvName,
-                      @Optional("OS X") String os,@Optional("10") String os_version, @Optional("chrome-options") String browserName, @Optional("34")
+                      @Optional("windows") String os,@Optional("10") String os_version, @Optional("firefox") String browserName, @Optional("34")
                               String browserVersion, @Optional("http://www.amazon.com") String url)throws IOException {
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\himel\\IdeaProjects\\WebAutomationDemo\\Generic\\Browser-Driver\\geckodriver.exe");
+        //System.setProperty("webdriver.gecko.driver", "C:\\Users\\himel\\IdeaProjects\\WebAutomationDemo\\Generic\\Browser-Driver\\geckodriver.exe");
         if(useCloudEnv==true){
             if(cloudEnvName.equalsIgnoreCase("browserstack")) {
                 getCloudDriver(cloudEnvName,browserstack_username,browserstack_accesskey,os,os_version, browserName, browserVersion);
@@ -145,32 +118,32 @@ public class CommonAPI {
     public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "C:\\Users\\himel\\IdeaProjects\\WebAutomationDemo\\Generic\\Browser-Driver\\mac\\chromedriver");
             }else if(OS.equalsIgnoreCase("Windows")){
-                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "C:\\Users\\himel\\IdeaProjects\\WebAutomationDemo\\Generic\\Browser-Driver\\chromedriver.exe");
             }
             driver = new ChromeDriver();
         } else if(browserName.equalsIgnoreCase("chrome-options")){
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-notifications");
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "C:\\Users\\himel\\IdeaProjects\\WebAutomationDemo\\Generic\\Browser-Driver\\mac\\chromedriver");
             }else if(OS.equalsIgnoreCase("Windows")){
-                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "C:\\Users\\himel\\IdeaProjects\\WebAutomationDemo\\Generic\\Browser-Driver\\chromedriver.exe");
             }
             driver = new ChromeDriver(options);
         }
 
         else if(browserName.equalsIgnoreCase("firefox")){
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.gecko.driver", "../Generic/browser-driver/geckodriver");
+                System.setProperty("webdriver.gecko.driver", "C:\\Users\\himel\\IdeaProjects\\WebAutomationDemo\\Generic\\Browser-Driver\\mac\\geckodriver");
             }else if(OS.equalsIgnoreCase("Windows")) {
-                System.setProperty("webdriver.gecko.driver", "../Generic/browser-driver/geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", "C:\\Users\\himel\\IdeaProjects\\WebAutomationDemo\\Generic\\Browser-Driver\\geckodriver.exe");
             }
             driver = new FirefoxDriver();
 
         } else if(browserName.equalsIgnoreCase("ie")) {
-            System.setProperty("webdriver.ie.driver", "../Generic/browser-driver/IEDriverServer.exe");
+            System.setProperty("webdriver.ie.driver", "C:\\Users\\himel\\IdeaProjects\\WebAutomationDemo\\Generic\\Browser-Driver\\IEDriverServer.exe");
             driver = new InternetExplorerDriver();
         }
         return driver;
@@ -182,10 +155,11 @@ public class CommonAPI {
                                     String browserVersion)throws IOException {
 
         DesiredCapabilities cap = new DesiredCapabilities();
-        cap.setCapability("browser",browserName);
-        cap.setCapability("browser_version",browserVersion);
-        cap.setCapability("os", os);
-        cap.setCapability("os_version", os_version);
+        cap.setCapability("browser","chrome");
+        cap.setCapability("browser_version","62.0");
+        cap.setCapability("os", "Windows");
+        cap.setCapability("os_version", "10");
+
         if(envName.equalsIgnoreCase("Saucelabs")){
             //resolution for Saucelabs
             driver = new RemoteWebDriver(new URL("http://"+envUsername+":"+envAccessKey+
@@ -201,9 +175,9 @@ public class CommonAPI {
     @AfterMethod
     public void afterMethod() {
         driver.quit();
-    }*/
+    }
 
-    public WebDriver driver = null;
+/*    public WebDriver driver = null;
 
     @Parameters({"url"})
     @BeforeMethod
@@ -218,7 +192,7 @@ public class CommonAPI {
     @AfterMethod
     public void cleanUp() {
         driver.close();
-    }
+    }*/
     public void clickOnCss(String locator){
         driver.findElement(By.cssSelector(locator)).click();
     }

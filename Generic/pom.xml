@@ -67,16 +67,13 @@
                 <groupId>org.hamcrest</groupId>
                 <artifactId>hamcrest-all</artifactId>
             </dependency>
-            <!--
-                <dependency>
+            <dependency>
                     <groupId>org.mongodb</groupId>
                     <artifactId>mongo-java-driver</artifactId>
-                </dependency>
-                <dependency>
+            </dependency>
+            <dependency>
                     <groupId>mysql</groupId>
                     <artifactId>mysql-connector-java</artifactId>
-                </dependency>
-                -->
+            </dependency>
         </dependencies>
-
 </project>

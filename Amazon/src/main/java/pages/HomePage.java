@@ -10,7 +10,6 @@ import reporting.TestLogger;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.lang.String;
 
 
 public class HomePage {

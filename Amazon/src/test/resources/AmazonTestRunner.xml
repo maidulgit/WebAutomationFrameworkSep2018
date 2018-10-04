@@ -3,23 +3,22 @@
 
 <suite name="Amazon API Automation Script " parallel="false">
 
-    <parameter name="useCloudEnv" value="false"/>
+    <parameter name="useCloudEnv" value="true"/>
     <parameter name="cloudEnvName" value="browserstack"/>
     <parameter name="os" value="windows"/>
     <parameter name="os_version" value="10"/>
-    <parameter name="browserName" value="firefox"/>
+    <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="60.0"/>
     <parameter name="url" value="https://www.amazon.com"/>
 
     <test name = "Search Test">
         <classes>
-            <!--<class name="search.InputSearch"/>
+            <class name="search.TestLoginPage"/>
+           <!-- <class name="search.TestHomePage"/>
+            <class name="search.InputSearch"/>
             <class name="search.SearchByGoogleSheetFromHomepageTest"/>
             <class name="search.SearchByXlsFromHomepageTest"/>
-            <class name="search.TestHomePage/>
-            <class name="search.TestLoginPage"/>
             <class name="menu.MenuPage"/>-->
         </classes>
     </test>
-
 </suite>
