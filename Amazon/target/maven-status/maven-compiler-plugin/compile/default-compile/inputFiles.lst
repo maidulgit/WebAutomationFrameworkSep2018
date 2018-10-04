@@ -1,6 +1,7 @@
 C:\Users\himel\IdeaProjects\WebAutomationDemo\Amazon\src\main\java\pages\SampleProductPage.java
-C:\Users\himel\IdeaProjects\WebAutomationDemo\Amazon\src\main\java\pages\CartPage.java
+C:\Users\himel\IdeaProjects\WebAutomationDemo\Amazon\src\main\java\pages\SearchByXlsFromHomepage.java
+C:\Users\himel\IdeaProjects\WebAutomationDemo\Amazon\src\main\java\pages\SearchByGoogleSheetFromHomepage.java
 C:\Users\himel\IdeaProjects\WebAutomationDemo\Amazon\src\main\java\pages\HomePage.java
-C:\Users\himel\IdeaProjects\WebAutomationDemo\Amazon\src\main\java\pages\GiftCardsPage.java
 C:\Users\himel\IdeaProjects\WebAutomationDemo\Amazon\src\main\java\pages\LogInPage.java
-C:\Users\himel\IdeaProjects\WebAutomationDemo\Amazon\src\main\java\pages\AddToCart.java
+C:\Users\himel\IdeaProjects\WebAutomationDemo\Amazon\src\main\java\pages\SearchBySqlDatabaseFromHomepage.java
+C:\Users\himel\IdeaProjects\WebAutomationDemo\Amazon\src\main\java\pages\SendAutoEmail.java
